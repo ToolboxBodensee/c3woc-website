@@ -1,56 +1,54 @@
 // Misc.
-$misc: (
-  z-index-base: 10000,
-  z-index-overlay: 100000,
-  max-spotlight: 20
-);
+	$misc: (
+		z-index-base:			10000,
+		max-wrapper-styles:		6
+	);
 
 // Duration.
-$duration: (
-  navPanel: 0.5s,
-  transition: 0.2s,
-  landing-fadein: 0.5s
-);
+	$duration: (
+		menu:					0.35s,
+		transition:				0.2s
+	);
 
 // Size.
-$size: (
-  border-radius: 4px,
-  element-height: 2.4em,
-  element-margin: 2em,
-  navPanel: 275px
-);
+	$size: (
+		border-radius:			5px,
+		element-height:			2.75em,
+		element-margin:			2em,
+		inner:					55em,
+		section-spacing:		(
+			large:				3em,
+			medium:				2em,
+			small:				1.75em
+		),
+		wrapper-edges:			(
+			large:				6.5em,
+			medium:				4.75em,
+			small:				2.5em
+		)
+	);
 
 // Font.
-$font: (
-  family: ('Roboto', Helvetica, sans-serif),
-  family-fixed: ('Courier New', monospace),
-  weight: 300,
-  weight-bold: 400
-);
+	$font: (
+		family:					('Source Sans Pro', Helvetica, sans-serif),
+		family-fixed:			('Courier New', monospace),
+		family-heading:			(Raleway, Helvetica, sans-serif),
+		weight:					300,
+		weight-bold:			600,
+		weight-heading:			200,
+		weight-heading-bold:	700,
+		kern-heading:			0.1em
+	);
 
 // Palette.
-$palette: (
-  bg: #1c1d26,
-  bg-transparent: rgba(23, 24, 32, 0.95),
-  bg-very-transparent: rgba(23, 24, 32, 0.9),
-  fg-bold: #ffffff,
-  fg: rgba(255,255, 255, 0.75),
-  fg-light: rgba(255, 255, 255, 0.5),
-  fg-lighter: rgba(255, 255, 255, 0.15),
-  border: rgba(255, 255, 255, 0.3),
-  border-bg: rgba(255, 255, 255, 0.075),
-  border2: rgba(255, 255, 255, 0.5),
-  border2-bg: rgba(255, 255, 255, 0.25),
-  accent3: #9B160F,
-  link: rgba(200, 200, 255, 0.75),
-  accent2: #272833,
-  accent2-transparent:rgba(39, 40, 51, 0.965),
-  accent1: #E64F2D,
-  accent4: #D74126,
-  nav-accent: rgb(230, 79, 45),
-);
-
-//pictures startpage
-$picture-startpage: (
-  scroll-1: url(/images/home/abschnitt1.jpeg),
-);
+	$palette: (
+		bg:						#2e3141,
+		fg:						#ffffff,
+		fg-bold:				#ffffff,
+		fg-light:				rgba(255,255,255,0.35),
+		border:					rgba(255,255,255,0.125),
+		border-bg:				rgba(255,255,255,0.025),
+		border2:				rgba(255,255,255,0.25),
+		border2-bg:				rgba(255,255,255,0.075),
+		accent:					#4c5c96
+	);

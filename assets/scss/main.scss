@@ -1,119 +1,56 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@import url("/css/font-awesome.min.css");
-@import url("/fonts/roboto.css");
-@import url("https://c3woc.de/css/spacestatus.css");
-@import "libs/skel";
-@import 'parts/startpage';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/html-grid';
+@import 'fontawesome-all.min.css';
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic');
 
 /*
-Landed by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-Modified by C3WOC
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-@include skel-breakpoints((
-  xlarge: '(max-width: 1680px)',
-  large: '(max-width: 1280px)',
-  medium: '(max-width: 1100px)',
-  small: '(max-width: 933px)',
-  xsmall: '(max-width: 480px)'
-));
+// Breakpoints.
 
-@mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (max-width: 1680px) { @content ; }
-  }
+	@include breakpoints((
+		xlarge:    (1281px,   1680px   ),
+		large:     (981px,    1280px   ),
+		medium:    (737px,    980px    ),
+		small:     (481px,    736px    ),
+		xsmall:    (361px,    480px    ),
+		xxsmall:   (null,     360px    )
+	));
 
-  @else if $point == laptop {
-    @media (max-width: 1280px) { @content ; }
-  }
+// Base.
 
-  @else if $point == tablet {
-    @media (max-width: 1100px) { @content ; }
-  }
+	@import 'base/reset';
+	@import 'base/page';
+	@import 'base/typography';
 
-  @else if $point == phablet {
-    @media (max-width: 933px) { @content ; }
-  }
+// Component.
 
-  @else if $point == mobileonly {
-    @media (max-width: 480px) { @content ; }
-  }
-}
+	@import 'components/row';
+	@import 'components/section';
+	@import 'components/form';
+	@import 'components/box';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/actions';
+	@import 'components/icons';
+	@import 'components/contact';
+	@import 'components/pagination';
+	@import 'components/table';
+	@import 'components/button';
+	@import 'components/features';
 
-@include skel-layout((
-  reset: 'full',
-  boxModel: 'border',
-  grid: ( gutters: 2.5em ),
-  conditionals: true,
-  containers: 70em,
-  breakpoints: (
-    large: (
-      containers: 90%,
-    ),
-    medium: (
-      containers: (100%, true),
-    )
-  )
-));
+// Layout.
 
-@mixin line-icon($bg: _palette(bg), $fg: _palette(fg-bold)) {
-  @include icon;
-  $size: 1px;
-
-  &::before {
-    color: $bg !important;
-    text-shadow:
-      $size 0 0 $fg,
-      ($size * -1) 0 0 $fg,
-      0 $size 0 $fg,
-      0 ($size * -1) 0 $fg;
-  }
-}
-
-$size-wrapper-pad-tb: 6em;
-$size-wrapper-pad-lr: 3em;
-
-@include breakpoint(laptop) {
-  $size-wrapper-pad-tb: 4.5em;
-  $size-wrapper-pad-lr: 2.5em;
-}
-
-@include breakpoint(tablet) {
-  $size-wrapper-pad-tb: 4.5em;
-  $size-wrapper-pad-lr: 2.5em;
-}
-
-@include breakpoint(phablet) {
-  $size-wrapper-pad-tb: 3.25em;
-  $size-wrapper-pad-lr: 1.5em;
-}
-
-@include breakpoint(mobileonly) {
-  $size-wrapper-pad-tb: 3em;
-  $size-wrapper-pad-lr: 1.25em;
-}
-
-@import 'parts/basic';
-@import 'parts/loader';
-@import 'parts/section-article';
-@import 'parts/form';
-@import 'parts/box';
-@import 'parts/icon';
-@import 'parts/image';
-@import 'parts/list';
-@import 'parts/table';
-@import 'parts/button';
-@import 'parts/goto-next';
-@import 'parts/spotlight';
-@import 'parts/wrapper';
-@import 'parts/dropotron';
-@import 'parts/header';
-@import 'parts/banner';
-@import 'parts/footer';
-@import 'parts/project';
-@import 'parts/col';
-@import 'parts/youtube';
+	@import 'layout/header';
+	@import 'layout/menu';
+	@import 'layout/banner';
+	@import 'layout/wrapper';
+	@import 'layout/footer';
