@@ -1,0 +1,19 @@
+{#- MIT (c) 2020 L3D <l3d@c3woc.de>
+
+   translator macro to simplify translation in templates.
+   It uses databags to store multiple strings for different languages.
+
+   text -> key in databag,
+   bag_name -> name of databag,
+   lang -> language to translate to,
+   fallback -> fallback language when translation is not available
+-#}
+{%- macro transl(text, bag_name, lang, fallback='de') %}
+  {%- if bag(bag_name, lang, text) -%}
+    {{ bag(bag_name, lang, text) }}
+  {%- elif bag(bag_name, fallback, text) -%}
+    {{ bag(bag_name, fallback, text) }}
+  {%- else -%}
+    {{ text }}
+  {%- endif %}
+{%- endmacro %}

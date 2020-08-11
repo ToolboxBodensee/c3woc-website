@@ -1,37 +1,23 @@
-<meta charset="utf-8">
-<meta property="og:title" content="{{ this.title }}"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content=
-  {%- block expand_ogg_image -%}
-    "{{ '/images/banner.jpg'|asseturl }}"
-  {%- endblock %} />
-<link href="https://{{ bag('settings', 'generic', 'fqdn') }}/feed_blog.xml" rel="alternate" title="[C3WOC] Neues aus der Waffelwelt" type="application/rss+xml">
-<link href="https://{{ bag('settings', 'generic', 'fqdn') }}/en/feed_blog.xml" rel="alternate" title="[C3WOC] Wafflenews [EN]" type="application/rss+xml">
-<link href="https://{{ bag('settings', 'generic', 'fqdn') }}/feed_rezepte.xml" rel="alternate" title="Waffelrezepte" type="application/rss+xml">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/images/icons/apple-touch-icon.png'|asseturl }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/icons/favicon-32x32.png'|asseturl }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ '/images/icons/favicon-16x16.png'|asseturl }}">
-<link rel="manifest" href="{{ '/images/icons/site.webmanifest'|asseturl }}">
-<link rel="mask-icon" href="{{ '/images/icons/safari-pinned-tab.svg'|asseturl }}" color="#ffda1d">
-<link rel="shortcut icon" href="{{ '/images/icons/favicon.ico'|asseturl }}">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-config" content="{{ '/images/icons/browserconfig.xml'|asseturl }}">
-<meta name="theme-color" content="#ffda1d">
-<script src="{{ '/js/jquery.min.js'|asseturl }}"></script> 
-
-{%- if '/css/main.min.css'|asseturl == empty %}
-    <link rel="stylesheet" href="https://{{ bag('settings', 'generic', 'fqdn') }}/css/main.min.css" />
-    <link rel="stylesheet" href="https://{{ bag('settings', 'generic', 'fqdn') }}/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://{{ bag('settings', 'generic', 'fqdn') }}/fonts/roboto.css" />
-{%- else %}
-    <link rel="stylesheet" href="{{ '/css/font-awesome.min.css'|asseturl }}" />
-    <link rel="stylesheet" href="{{ '/fonts/roboto.css'|asseturl }}" />
-    <link rel="stylesheet" href="{{ '/css/main.min.css'|asseturl }}" />
-{%- endif %}
-<!--[if lte IE 9]><link rel="stylesheet" href=
-  {%- if '/css/ie9.min.css'|asseturl == empty %}"https://{{ bag('settings', 'generic', 'fqdn') }}/css/ie9.min.css"
-  {%- else %}"{{ '/css/ie9.min.css'|asseturl }}"
-  {%- endif %} /><![endif]-->
-
-
+    <meta charset="utf-8">
+    <meta property="og:title" content="{{ this.title }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=
+    {%- block expand_ogg_image -%}
+      "{{ '/images/banner.jpg'|asseturl }}"
+    {%- endblock %} />
+    <link href="{{ '/feed_blog.xml'|url(external=true) }}" rel="alternate" title="[C3WOC] Neues aus der Waffelwelt" type="application/rss+xml">
+    <link href="{{ '/feed_blog.xml'|url(alt='en',external=true) }}" rel="alternate" title="[C3WOC] Wafflenews [EN]" type="application/rss+xml">
+    <link href="{{ '/feed_rezepte.xml'|url(external=true) }}" rel="alternate" title="Waffelrezepte" type="application/rss+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/images/icons/apple-touch-icon.png'|asseturl }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/icons/favicon-32x32.png'|asseturl }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/images/icons/favicon-16x16.png'|asseturl }}">
+    <link rel="manifest" href="{{ '/images/icons/site.webmanifest'|asseturl }}">
+    <link rel="mask-icon" href="{{ '/images/icons/safari-pinned-tab.svg'|asseturl }}" color="#ffda1d">
+    <link rel="shortcut icon" href="{{ '/images/icons/favicon.ico'|asseturl }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{ '/images/icons/browserconfig.xml'|asseturl }}">
+    <meta name="theme-color" content="#ffda1d">
+    <script src="{{ '/js/jquery.min.js'|asseturl }}"></script>
+    <link rel="stylesheet" href="{{ '/css/main.min.css'|url }}" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>

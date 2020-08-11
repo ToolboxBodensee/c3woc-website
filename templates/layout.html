@@ -1,4 +1,4 @@
-{%- from "macros/translator.j2" import translator -%}
+{%- from "macros/transl.j2" import transl -%}
 <!DOCTYPE html>
 <html
   {%- if alt %} lang="{{ alt }}"
@@ -10,18 +10,16 @@
       {%- endblock -%}
     </title>
     {%- block expand_description %}
-      <meta name="description" content="{{- translator('description', 'translate', this.alt) }}" />
+      <meta name="description" content="{{- transl('description', 'translate', this.alt) }}" />
     {%- endblock %}
     {%- block expand_header %}
     {%- endblock %}
     {% include "partials/head.html" -%}
-
-
   </head>
 
   <body class="
     {%- if this._path == '/' -%}
-      landing 
+      landing
     {%- endif %} is-preload">
     <div id="page-wrapper">
       <!-- Header -->
@@ -37,13 +35,13 @@
           <ul>
             <li{% if this._path == '/' %} class="active"{% endif %}>
               <a href="{{ '/'|url }}">
-                {{- translator('home', 'navigation', this.alt) -}}
+                {{- transl('home', 'navigation', this.alt) -}}
               </a>
             </li>
 {%- for title, href in bag('nav-bar', "NavBar").items() %}
             <li{% if this.is_child_of(href) %} class="active"{% endif %}>
               <a href="{{ href|url }}">
-                {{- translator(title, 'navigation', this.alt) -}}
+                {{- transl(title, 'navigation', this.alt) -}}
               </a>
               <ul>
   {%- if bag('nav-bar', 'list', title) %}
@@ -63,7 +61,7 @@
       {%- if bag('nav-bar', 'button', nav_title) %} class="button nav"
       {%- endif -%}
                   >
-                    {{- translator(nav_title, 'navigation', this.alt) -}}
+                    {{- transl(nav_title, 'navigation', this.alt) -}}
                   </a>
                 </li>
     {%- endfor %}
@@ -76,30 +74,30 @@
   # the language selection is currently not included into the template above, because we did not find a proper solution to integrate them yet
   #}
              <li class="last">
-               <a href="{{ '.'|url(alt=translator('default_path', 'navigation', this.alt, 'en')) }}">
-               {{- translator('sprache', 'navigation', this.alt) -}}
+               <a href="{{ '.'|url(alt=transl('default_path', 'navigation', this.alt, 'en')) }}">
+               {{- transl('sprache', 'navigation', this.alt) -}}
                </a>
                <ul class="last">
                  <li>
                    <a href="{{ '.'|url(alt='') }}">
-                     {{- translator('German', 'navigation', this.alt) -}}
+                     {{- transl('German', 'navigation', this.alt) -}}
                    </a>
                  </li>
 {#
                  <li>
                    <a href="{{ '.'|url(alt='sxu') }}">
-                     {{- translator('Saechsisch', 'navigation', this.alt) }}
+                     {{- transl('Saechsisch', 'navigation', this.alt) }}
                      <i>(
-                       {{- translator('falls', 'navigation', this.alt) -}}
+                       {{- transl('falls', 'navigation', this.alt) -}}
                      )</i>
                    </a>
                  </li>
 #}
                  <li>
                    <a href="{{ '.'|url(alt='en') }}">
-                     {{- translator('Englisch', 'navigation', this.alt) }}
+                     {{- transl('Englisch', 'navigation', this.alt) }}
                      <i>(
-                       {{- translator('falls', 'navigation', this.alt) -}}
+                       {{- transl('falls', 'navigation', this.alt) -}}
                      )</i>
                    </a>
                  </li>
