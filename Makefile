@@ -14,18 +14,24 @@ install:
 	elif hash dnf 2>/dev/null; then
 	  sudo dnf install -y ImageMagick python3-pip gcc git-lfs
 	else
-	  echo -e "Please install Imagemagick, python3-pip and gcc"
+	  echo -e "Please install Imagemagick, python3-pip git-lfs and gcc"
 	fi
 	sudo pip3 install wheel  --upgrade
 	sudo pip3 install lektor --upgrade
 
 build:
-	lektor clean --yes
-	lektor plugin flush-cache
-	python3 -m lektor build $(LEKTOR_PLUGIN_FLAGS)
+	if python3 -m lektor --version 2>/dev/null; then
+	  python3 -m lektor build $(LEKTOR_PLUGIN_FLAGS)
+	else
+	  lektor build $(LEKTOR_PLUGIN_FLAGS)
+	fi
 
 server:
-	python3 -m lektor server $(LEKTOR_SERVER_FLAGS) $(LEKTOR_PLUGIN_FLAGS)
+	if python3 -m lektor --version 2>/dev/null; then
+	  python3 -m lektor server $(LEKTOR_SERVER_FLAGS) $(LEKTOR_PLUGIN_FLAGS)
+	else
+	  lektor server $(LEKTOR_SERVER_FLAGS) $(LEKTOR_PLUGIN_FLAGS)
+	fi
 
 deploy:
 	lektor clean --yes
